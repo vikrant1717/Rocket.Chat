@@ -32,7 +32,7 @@ const toSymbol = (id, viewBox, { id: _, ...args }) => ({
 	},
 });
 
-const xml = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">';
+const xml = '<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" style="display: none">';
 const start = async () => {
 	const stream = fs.createWriteStream('icons.svg', { flags: 'w' });
 	stream.write(`${ xml }\n`);

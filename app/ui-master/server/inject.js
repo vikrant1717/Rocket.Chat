@@ -3,10 +3,15 @@ import { Inject } from 'meteor/meteorhacks:inject-initial';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Tracker } from 'meteor/tracker';
 import _ from 'underscore';
+import { BrowserPolicy } from 'meteor/browser-policy';
 
 import { escapeHTML } from '../../../lib/escapeHTML';
 import { Settings } from '../../models';
 import { settings } from '../../settings/server';
+
+BrowserPolicy.content.disallowInlineScripts();
+BrowserPolicy.content.allowEval();
+BrowserPolicy.content.allowInlineStyles();
 
 const headInjections = new ReactiveDict();
 
@@ -43,9 +48,9 @@ Meteor.startup(() => {
 				animation: none !important;
 			}
 		</style>
-		<script>
-			window.DISABLE_ANIMATION = true;
-		</script>
+		// <script>
+		// 	window.DISABLE_ANIMATION = true;
+		// </script>
 		`);
 	}
 
@@ -53,7 +58,7 @@ Meteor.startup(() => {
 		if (!value) {
 			return injectIntoHead(key, '');
 		}
-		injectIntoHead(key, '<script>window.USE_REST_FOR_DDP_CALLS = true;</script>');
+		// injectIntoHead(key, '<script>window.USE_REST_FOR_DDP_CALLS = true;</script>');
 	});
 
 	settings.get('Assets_SvgFavicon_Enable', (key, value) => {
@@ -185,7 +190,7 @@ settings.get('Accounts_ForgetUserSessionOnWindowClose', (key, value) => {
 	});
 </script>
 			`;
-			return html + script;
+			return html;
 		});
 	} else {
 		Inject.rawModHtml(key, (html) => html);

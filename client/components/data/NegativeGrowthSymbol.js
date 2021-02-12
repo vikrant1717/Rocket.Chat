@@ -4,7 +4,7 @@ const style = { width: '1.5em', height: '1.5em', verticalAlign: '-0.5em' };
 
 const NegativeGrowthSymbol = (props) =>
 	<svg
-		xmlns='http://www.w3.org/2000/svg'
+		xmlns='https://www.w3.org/2000/svg'
 		viewBox='0 0 25 24'
 		style={style}
 		{...props}

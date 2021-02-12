@@ -135,7 +135,7 @@ API.v1.addRoute('shield.svg', { authRequired: false, rateLimiterOptions: { numRe
 		return {
 			headers: { 'Content-Type': 'image/svg+xml;charset=utf-8' },
 			body: `
-				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${ width }" height="${ height }">
+				<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="${ width }" height="${ height }">
 					<linearGradient id="b" x2="0" y2="100%">
 						<stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
 						<stop offset="1" stop-opacity=".1"/>
